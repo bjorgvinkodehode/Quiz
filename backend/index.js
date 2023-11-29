@@ -7,8 +7,9 @@ const port = 3001;
 const db = new sqlite3.Database('./quiz.db', sqlite3.OPEN_READWRITE, (err) => {
     if (err) {
         console.error(err.message);
+    } else {
+        console.log('Connected to the quiz database.');
     }
-    console.log('Connected to the quiz database.');
 });
 
 app.use(express.json());
@@ -26,4 +27,3 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
-
